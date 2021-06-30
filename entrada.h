@@ -14,6 +14,7 @@ public:
   bool lerArquivo(char *nome); // Lê arquivo
   void lerEntrada(); // Lê linha do console
   void exibirTokens(); // Exibe os tokens processados
+  void exibirTabelaSimbolos(); // Exibe a tabela de símbolos
 };
 
 #endif

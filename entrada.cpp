@@ -21,13 +21,30 @@ void Entrada::lerEntrada() {
   while(ntoken != 0) { // O loop é executado enquanto houver palavras a serem lidas
     al.tokenizar(ntoken, scanner->YYText(), scanner->lineno()); // Passa dados da linha do console para a classe de análise léxica realizar a tokenização
     Entrada::exibirTokens(); // Para cada linha processada, é exibido os tokens que foram encontrados
-    al.limpaTabela(); // Limpa a tabela de simbolos para não exibir tokens repetidos
+    al.limpaTokens(); // Limpa a lista de tokens para não exibir tokens repetidos
     ntoken = scanner->yylex(); // Lê mais uma linha de entrada do console
   }
 }
 
 void Entrada::exibirTokens() {
-  for (Token tk: al.getTabelaSimbolos()) { // Para cada token na tabela de símbolos, é exibido seus dados
+  for (Token tk: al.getTokens()) { // Para cada token na tabela de símbolos, é exibido seus dados
     std::cout << "Id: " << tk.id << " - Lexema: " << tk.lexema << " - Linha: " << tk.linha << " - Descrição: " << tk.descricao << std::endl;
+  }
+}
+
+void Entrada::exibirTabelaSimbolos() {
+  // Para cada identificador é exibido as linhas onde ocorre
+  for (auto const& it: al.getTabelaSimbolos()) {
+    Atributo at = it.second;
+    std::cout << "Id: " << it.first << " - Linhas: [";
+    int i = 0;
+    for (int linha: at.linhas) {
+      std::cout << linha << "";
+      if (i < at.linhas.size()-1) {
+        std::cout << ", ";
+      }
+      i++;
+    }
+    std::cout << "]" << std::endl;
   }
 }

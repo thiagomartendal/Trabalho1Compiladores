@@ -159,14 +159,19 @@ void AnaliseLexica::tokenizar(int ntoken, std::string lexema, int linha) {
       break;
     }
   }
+  tabelaSimbolos[lexema].linhas.insert(linha); // Insere linha no conjunto de linhas de um lexema
   Token token = {id, lexema, linha, descricao}; // Monta o token
-  tabelaSimbolos.push_back(token); // Adiciona o token a tabela de símbolos
+  tokens.push_back(token); // Adiciona o token a tabela de símbolos
 }
 
-void AnaliseLexica::limpaTabela() {
-  tabelaSimbolos.clear(); // Limpa a tabela de símbolos
+void AnaliseLexica::limpaTokens() {
+  tokens.clear(); // Limpa a lista de tokens
 }
 
-std::vector<Token> AnaliseLexica::getTabelaSimbolos() {
+std::vector<Token> AnaliseLexica::getTokens() {
+  return tokens; // Retorna a lista de tokens
+}
+
+std::map<std::string, Atributo> AnaliseLexica::getTabelaSimbolos() {
   return tabelaSimbolos; // Retorna a tabela de símbolos
 }
