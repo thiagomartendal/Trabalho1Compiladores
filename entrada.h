@@ -8,6 +8,7 @@
 class Entrada {
 private:
   AnaliseLexica al; // Classe de análise léxica
+  bool houveErro(); // Checa se houve um erro léxico
 
 public:
   Entrada() = default;

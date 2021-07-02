@@ -1,5 +1,15 @@
 #include "entrada.h"
 
+bool Entrada::houveErro() {
+  // A lista é percorrida para encontrar tokens de erro
+  for (Token tk: al.getTokens()) {
+    if (tk.id == Identificador::ERR) {
+      return true;
+    }
+  }
+  return false;
+}
+
 bool Entrada::lerArquivo(char *nome) {
   std::fstream arquivo; // Classe para ler arquivo
   arquivo.open(nome, std::ios_base::in); // Abre o arquivo
@@ -10,6 +20,7 @@ bool Entrada::lerArquivo(char *nome) {
   int ntoken = scanner->yylex(); // Processa cada palavra lida atribuindo um valor inteiro
   while(ntoken != 0) { // O loop é executado enquanto houver palavras a serem lidas
     al.tokenizar(ntoken, scanner->YYText(), scanner->lineno()); // Passa dados do arquivo para a classe de análise léxica realizar a tokenização
+    // std::cout << scanner->YYLeng() << std::endl;
     ntoken = scanner->yylex(); // Lê próxima linha do arquivo, caso esta exista
   }
   return true;
@@ -27,8 +38,13 @@ void Entrada::lerEntrada() {
 }
 
 void Entrada::exibirTokens() {
+  std::cout << "Tokens Encontrados:\n" << std::endl;
   for (Token tk: al.getTokens()) { // Para cada token na tabela de símbolos, é exibido seus dados
     std::cout << "Id: " << tk.id << " - Lexema: " << tk.lexema << " - Linha: " << tk.linha << " - Descrição: " << tk.descricao << std::endl;
+  }
+  if (!Entrada::houveErro()) { // Caso não Haja erros léxicos é exibida a tabela de símbolos
+    std::cout << "\nTabela de Símbolos:\n" << std::endl;
+    Entrada::exibirTabelaSimbolos();
   }
 }
 
