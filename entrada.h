@@ -1,6 +1,7 @@
 #ifndef ENTRADA_H
 #define ENTRADA_H
 
+#include <string>
 #include <fstream>
 #include <FlexLexer.h>
 #include "analise_lexica.h"
@@ -12,7 +13,7 @@ private:
 
 public:
   Entrada() = default;
-  bool lerArquivo(char *nome); // Lê arquivo
+  bool lerArquivo(std::string nome); // Lê arquivo
   void lerEntrada(); // Lê linha do console
   void exibirTokens(); // Exibe os tokens processados
   void exibirTabelaSimbolos(); // Exibe a tabela de símbolos

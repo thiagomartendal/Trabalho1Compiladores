@@ -10,10 +10,15 @@ bool Entrada::houveErro() {
   return false;
 }
 
-bool Entrada::lerArquivo(char *nome) {
+bool Entrada::lerArquivo(std::string nome) {
+  if ((nome[nome.length()-1] != 'c') && (nome[nome.length()-2] != 'c') && (nome[nome.length()-3] != 'l') && (nome[nome.length()-4] != '.')) {
+    std::cout << "O arquivo deve ter a extensão .lcc" << std::endl;
+    return false;
+  }
   std::fstream arquivo; // Classe para ler arquivo
   arquivo.open(nome, std::ios_base::in); // Abre o arquivo
   if (arquivo.fail()) { // Verifica se houve erro na abertura
+    std::cout << "Erro: O arquivo " << nome << " não foi encontrado." << std::endl;
     return false;
   }
   yyFlexLexer *scanner = new yyFlexLexer(&arquivo); // Classe de leitura do flex, que lê do arquivo
