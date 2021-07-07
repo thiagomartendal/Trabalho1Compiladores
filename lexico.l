@@ -1,7 +1,20 @@
 %{
   #include "identificador.h"
+
+  int yycolumn = 1;
+  int start_line = 1, start_column = 1;
+
+  #define YY_USER_ACTION                                                   \
+    start_line = prev_yylineno; start_column = yycolumn;                   \
+    if (yylineno == prev_yylineno) yycolumn += yyleng;                     \
+    else {                                                                 \
+      for (yycolumn = 1; yytext[yyleng - yycolumn] != '\n'; ++yycolumn) {} \
+      prev_yylineno = yylineno;                                            \
+    }
+
   extern "C" {
     int yylex(void);
+    int coluna(void);
   }
 %}
 
@@ -9,6 +22,7 @@
 %option yylineno
 
 %%
+  int prev_yylineno = yylineno;
 "new" {return Identificador::NEW;}
 "def" {return Identificador::DF;}
 "read" {return Identificador::RD;}
@@ -53,4 +67,8 @@
 
 int yywrap() {
   return 1;
+}
+
+int coluna() {
+  return start_column;
 }

@@ -1,6 +1,6 @@
 #include "analise_lexica.h"
 
-void AnaliseLexica::tokenizar(int ntoken, std::string lexema, int linha) {
+void AnaliseLexica::tokenizar(int ntoken, std::string lexema, int linha, int coluna) {
   Identificador id; // Recebe o identificador do token
   std::string descricao; // Uma descrição do lexema
   // Abaixo segue a verificação dos tokens e as devidas atribuições
@@ -159,13 +159,20 @@ void AnaliseLexica::tokenizar(int ntoken, std::string lexema, int linha) {
       break;
     }
   }
-  tabelaSimbolos[lexema].linhas.insert(linha); // Insere linha no conjunto de linhas de um lexema
-  Token token = {id, lexema, linha, descricao}; // Monta o token
+  Posicao p = {linha, coluna};
+  if (id == Identificador::ID) {
+    tabelaSimbolos[lexema].pos.insert(p); // Insere linha no conjunto de linhas de um lexema
+  }
+  Token token = {id, lexema, p, descricao}; // Monta o token
   tokens.push_back(token); // Adiciona o token a tabela de símbolos
 }
 
 void AnaliseLexica::limpaTokens() {
   tokens.clear(); // Limpa a lista de tokens
+}
+
+void AnaliseLexica::limpaTabelaSimbolos() {
+  tabelaSimbolos.clear(); // Limpa a tabela de símbolos
 }
 
 std::vector<Token> AnaliseLexica::getTokens() {

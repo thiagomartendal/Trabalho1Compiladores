@@ -15,8 +15,9 @@ private:
 
 public:
   AnaliseLexica() = default;
-  void tokenizar(int ntoken, std::string lexema, int linha); // Recebe os dados de entrada a respeito de um lexema, e os atribui a um token que será adicionado a tabela de símbolos
+  void tokenizar(int ntoken, std::string lexema, int linha, int coluna); // Recebe os dados de entrada a respeito de um lexema, e os atribui a um token que será adicionado a tabela de símbolos
   void limpaTokens(); // Limpa a lista de tokens
+  void limpaTabelaSimbolos(); // Limpa a tabela de símbolos
   std::vector<Token> getTokens(); // Retorna a lista de tokens
   std::map<std::string, Atributo> getTabelaSimbolos(); // Retorna a tabela de símbolos
 };

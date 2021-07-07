@@ -6,6 +6,8 @@
 #include <FlexLexer.h>
 #include "analise_lexica.h"
 
+extern "C" int coluna();
+
 class Entrada {
 private:
   AnaliseLexica al; // Classe de análise léxica
