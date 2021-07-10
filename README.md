@@ -1,4 +1,4 @@
-# Trabalho1Compiladores
+# Trabalho 1 - Análise Léxica
 
 ## Autores
 
