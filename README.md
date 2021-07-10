@@ -38,7 +38,7 @@ g++ main.cpp entrada.cpp analise_lexica.cpp lex.yy.cc -lfl -o Main
 
 Esta seção trata o processo de compilação e execução automáticas com comandos do makefiel.
 
-Compilação do projeot:
+Compilação do projeto:
 
 make compilar
 
