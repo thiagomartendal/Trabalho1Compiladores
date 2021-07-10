@@ -24,6 +24,12 @@ O programa 2 trás a implementação do método numérico de Birge Vieta, para c
 
 No programa 3, é implementado um algoritmo que aplica algumas operações em conjuntos.
 
+## Instalação
+
+Para instalar o Flex, basta usar o comando do makefile:
+
+make instalar-flex
+
 ## Compilação:
 
 flex -+ lexico.l
