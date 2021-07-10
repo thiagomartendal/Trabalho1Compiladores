@@ -1,5 +1,5 @@
 instalar-flex:
-    sudo apt-get install flex
+	sudo apt-get install flex
 
 compilar:
 	flex -+ lexico.l
