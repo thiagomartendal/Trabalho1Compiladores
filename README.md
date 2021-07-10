@@ -6,17 +6,17 @@
 [Thiago Martendal Salvador]
 [Pablo Daniel Riveros Strapasson]
 
-# Compilação:
+## Compilação:
 
 flex -+ lexico.l
 
 g++ main.cpp entrada.cpp analise_lexica.cpp lex.yy.cc -lfl -o Main
 
-# Execução:
+## Execução:
 
 ./Main LCC-2021-1-20210627/exemplo1.lcc
 
-# Compilação e Execução com makefile:
+## Compilação e Execução com makefile:
 
 Esta seção trata o processo de compilação e execução automáticas com comandos do makefiel.
 
