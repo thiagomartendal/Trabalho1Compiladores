@@ -20,7 +20,7 @@ Se trata de um programa que calcula funções matemáticas simples, e realisa a 
 
 O programa 2 trás a implementação do método numérico de Birge Vieta, para calcular raizes para um polinômio.
 
-## programa-lcc-3.lcc
+### programa-lcc-3.lcc
 
 No programa 3, é implementado um algoritmo que aplica algumas operações em conjuntos.
 
