@@ -1,3 +1,7 @@
+// Leandro Hideki Aihara
+// Thiago Martendal Salvador
+// Pablo Daniel Riveros Strapasson
+
 #include <iostream>
 #include <string>
 #include "entrada.h"

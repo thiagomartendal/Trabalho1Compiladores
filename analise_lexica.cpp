@@ -1,3 +1,7 @@
+// Leandro Hideki Aihara
+// Thiago Martendal Salvador
+// Pablo Daniel Riveros Strapasson
+
 #include "analise_lexica.h"
 
 void AnaliseLexica::tokenizar(int ntoken, std::string lexema, int linha, int coluna) {

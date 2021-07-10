@@ -1,3 +1,7 @@
+// Leandro Hideki Aihara
+// Thiago Martendal Salvador
+// Pablo Daniel Riveros Strapasson
+
 #ifndef TOKEN_H
 #define TOKEN_H
 

@@ -1,3 +1,7 @@
+// Leandro Hideki Aihara
+// Thiago Martendal Salvador
+// Pablo Daniel Riveros Strapasson
+
 #include "entrada.h"
 
 bool Entrada::houveErro() {
@@ -46,13 +50,20 @@ void Entrada::lerEntrada() {
 }
 
 void Entrada::exibirTokens() {
-  std::cout << "Tokens Encontrados:\n" << std::endl;
-  for (Token tk: al.getTokens()) { // Para cada token na tabela de símbolos, é exibido seus dados
-    std::cout << "Id: " << tk.id << " - Lexema: " << tk.lexema << " - Linha: " << tk.pos.linha << " - Coluna: " << tk.pos.coluna << " - Descrição: " << tk.descricao << std::endl;
-  }
-  if (!Entrada::houveErro()) { // Caso não Haja erros léxicos é exibida a tabela de símbolos
+  if (!Entrada::houveErro()) { // Caso não Haja erros léxicos é exibida a lista de tokens e a tabela de símbolos
+    std::cout << "Tokens Encontrados:\n" << std::endl;
+    for (Token tk: al.getTokens()) { // Para cada token na tabela de símbolos, é exibido seus dados
+      std::cout << "Id: " << tk.id << " - Lexema: " << tk.lexema << " - Linha: " << tk.pos.linha << " - Coluna: " << tk.pos.coluna << " - Descrição: " << tk.descricao << std::endl;
+    }
     std::cout << "\nTabela de Símbolos:\n" << std::endl;
     Entrada::exibirTabelaSimbolos();
+  } else {
+    std::cout << "Tokens de Erro Encontrados:\n" << std::endl;
+    for (Token tk: al.getTokens()) { // Para cada token na tabela de símbolos, é exibido os dados apenas de tokens de erro
+      if (tk.id == 38) {
+        std::cout << "Id: " << tk.id << " - Lexema: " << tk.lexema << " - Linha: " << tk.pos.linha << " - Coluna: " << tk.pos.coluna << " - Descrição: " << tk.descricao << std::endl;
+      }
+    }
   }
 }
 

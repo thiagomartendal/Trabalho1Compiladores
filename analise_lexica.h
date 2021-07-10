@@ -1,3 +1,7 @@
+// Leandro Hideki Aihara
+// Thiago Martendal Salvador
+// Pablo Daniel Riveros Strapasson
+
 #ifndef ANALISE_LEXICA_H
 #define ANALISE_LEXICA_H
 
