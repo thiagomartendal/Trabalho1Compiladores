@@ -1,10 +1,10 @@
 # Trabalho1Compiladores
 
-## Authors
+## Autores
 
-[Leandro Hideki Aihara]
-[Thiago Martendal Salvador]
-[Pablo Daniel Riveros Strapasson]
+Leandro Hideki Aihara
+Thiago Martendal Salvador
+Pablo Daniel Riveros Strapasson
 
 ## Compilação:
 
