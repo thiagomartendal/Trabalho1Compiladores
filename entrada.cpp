@@ -34,12 +34,15 @@ void Entrada::lerEntrada() {
   yyFlexLexer *scanner = new yyFlexLexer; // Classe de leitura do flex, que lê da entrada do console
   int ntoken = scanner->yylex(); // Processa cada palavra lida atribuindo um valor inteiro
   while(ntoken != 0) { // O loop é executado enquanto houver palavras a serem lidas
+    std::string s = scanner->YYText();
+    if (s == ".") { // Caso uma linha da entrada contenha apenas '.' é declarado o fim da entrada por console
+      break;
+    }
     al.tokenizar(ntoken, scanner->YYText(), scanner->lineno(), coluna()); // Passa dados da linha do console para a classe de análise léxica realizar a tokenização
-    Entrada::exibirTokens(); // Para cada linha processada, é exibido os tokens que foram encontrados
-    al.limpaTokens(); // Limpa a lista de tokens para não exibir tokens repetidos
-    al.limpaTabelaSimbolos(); // Limpa a tabela de símbolos para não exibir símbolos repetidos
     ntoken = scanner->yylex(); // Lê mais uma linha de entrada do console
   }
+  std::cout << std::endl;
+  Entrada::exibirTokens(); // Para cada linha processada, é exibido os tokens que foram encontrados
 }
 
 void Entrada::exibirTokens() {

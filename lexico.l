@@ -56,12 +56,11 @@
 "]" {return Identificador::CL2;}
 "," {return Identificador::VI;}
 ";" {return Identificador::PV;}
-[a-zA-Z][a-zA-Z0-9]* {return Identificador::ID;}
+[a-zA-Z_][a-zA-Z0-9_]* {return Identificador::ID;}
 [[:digit:]]+ {return Identificador::ICT;}
-[[:digit:]]*\.[[:digit:]]* {return Identificador::FCT;}
+[[:digit:]]+\.[[:digit:]]+ {return Identificador::FCT;}
 \"(([^\"]|\\\")*[^\\])?\" {return Identificador::SCT;}
 [ \n\t] {;}
-[.[:digit:]]+ {return Identificador::ERR;}
 . {return Identificador::ERR;}
 %%
 
