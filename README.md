@@ -8,6 +8,22 @@ Thiago Martendal Salvador
 
 Pablo Daniel Riveros Strapasson
 
+## Sobre os programas escritos em LCC
+
+Os programas de exemplos escritos a na linguagem LCC a serem testados estão na pasta programas.
+
+### programa-lcc-1.lcc
+
+Se trata de um programa que calcula funções matemáticas simples, e realisa a interação destas através de outras funções auxiliares.
+
+### programa-lcc-2.lcc
+
+O programa 2 trás a implementação do método numérico de Birge Vieta, para calcular raizes para um polinômio.
+
+## programa-lcc-3.lcc
+
+No programa 3, é implementado um algoritmo que aplica algumas operações em conjuntos.
+
 ## Compilação:
 
 flex -+ lexico.l
