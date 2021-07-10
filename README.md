@@ -3,7 +3,9 @@
 ## Autores
 
 Leandro Hideki Aihara
+
 Thiago Martendal Salvador
+
 Pablo Daniel Riveros Strapasson
 
 ## Compilação:
